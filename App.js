@@ -13,9 +13,8 @@ import {
 } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Home from './src/components/Home';
 import {Favorites} from './src/components/Favorites';
-import { TabBar } from "./src/components/TabBar";
+import {TabBar} from './src/components/TabBar';
 
 const Stack = createNativeStackNavigator();
 

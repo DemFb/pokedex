@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {
   FlatList,
-  ScrollView,
   SafeAreaView,
   StyleSheet,
   Text,
@@ -27,16 +26,9 @@ const Home = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.title}> Sign up </Text>
-      <View>
-        <Text>Page d'accueil</Text>
-      </View>
+      <Text style={styles.title}> Liste des pokémons </Text>
       <FlatList
-        style={{
-          width: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-        }}
+        style={styles.cardList}
         data={data}
         renderItem={renderItem}
         keyExtractor={item => item.id}
@@ -64,5 +56,11 @@ const styles = StyleSheet.create({
   },
   highlight: {
     fontWeight: '700',
+  },
+  cardList: {
+    flex: 1,
+    width: '100%',
+    flexFlow: 'row wrap',
+    backgroundColor: 'aliceblue',
   },
 });

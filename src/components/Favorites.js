@@ -1,19 +1,16 @@
-import React, {useState} from 'react';
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
+import React from 'react';
+import { Text, View, StyleSheet, SafeAreaView } from "react-native";
 
-const Home = () => {
-  const [data, setData] = useState(null);
+export const Favorites = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}> Sign up </Text>
       <View>
-        <Text>Page d'accueil</Text>
+        <Text>Page favorite</Text>
       </View>
     </SafeAreaView>
   );
 };
-
-export default Home;
 
 const styles = StyleSheet.create({
   sectionContainer: {

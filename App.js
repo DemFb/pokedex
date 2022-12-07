@@ -14,6 +14,8 @@ import {
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Home from './src/components/Home';
+import {Favorites} from './src/components/Favorites';
+import { TabBar } from "./src/components/TabBar";
 
 const Stack = createNativeStackNavigator();
 
@@ -21,30 +23,19 @@ const App: () => Node = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen
+          name="Launch"
+          component={TabBar}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Favorites"
+          component={Favorites}
+          options={{headerShown: false}}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    flex: 1,
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
 
 export default App;

@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {FlatList, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import {fetchData} from '../api/apiHelper';
 import {Card} from './Card';
 const Home = () => {
@@ -25,11 +26,13 @@ const Home = () => {
         <Text>Page d'accueil</Text>
       </View>
       <FlatList
-        style={{
+        contentContainerStyle={{
           width: '100%',
-          display: 'flex',
+          padding: 5,
           flexDirection: 'column',
-        }}
+          alignItems: 'center',
+      }}
+        numColumns={2}
         data={data}
         renderItem={renderItem}
         keyExtractor={item => item.id}

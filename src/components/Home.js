@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import {FlatList, ScrollView, StyleSheet, Text, View} from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
 import {fetchData} from '../api/apiHelper';
 import {Card} from './Card';
 const Home = () => {
@@ -21,10 +20,6 @@ const Home = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}> Sign up </Text>
-      <View>
-        <Text>Page d'accueil</Text>
-      </View>
       <FlatList
         contentContainerStyle={{
           width: '100%',
@@ -46,6 +41,6 @@ export default Home;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'red',
+    backgroundColor: 'rgba(0, 0, 0, 0.21)',
   },
 });

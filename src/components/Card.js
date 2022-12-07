@@ -1,10 +1,12 @@
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, Dimensions} from 'react-native';
 import {StyleSheet} from 'react-native';
+
+const windowWidth = Dimensions.get('window').width;
 
 export const Card = props => {
   return (
-    <View style={styles.card}>
-      <Image style={styles.image} source={{uri: props.item.image}} />
+    <View style={style.view}>
+      <Image style={style.image} source={{uri: props.item.image}} />
       <Text>
         {props.item.id} : {props.item.name}
       </Text>
@@ -12,18 +14,20 @@ export const Card = props => {
   );
 };
 
-const styles = StyleSheet.create({
-  card: {
-    width: '45%',
-    height: 200,
-    backgroundColor: 'gray',
-    borderRadius: 25,
-    margin: 5,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+const style = StyleSheet.create({
   image: {
     height: 80,
     width: 80,
+  },
+  view: {
+    width: windowWidth / 2 - 10,
+    height: windowWidth / 2 - 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: 5,
+    backgroundColor: 'white',
+    borderRadius: 30,
+    borderWidth: 3,
+    borderColor: 'rgba(0, 0, 0, 0.50)',
   },
 });

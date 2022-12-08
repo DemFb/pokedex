@@ -1,6 +1,7 @@
 import axios from 'axios';
 const baseUrl = 'https://pokebuildapi.fr/api/v1/';
 
+
 export const fetchData = async () => {
   const configurationObject = {
     method: 'get',
@@ -11,8 +12,8 @@ export const fetchData = async () => {
   return response;
 };
 // Invoking get method to perform a GET request
-export const fetchUser = async () => {
-  const url = `${baseUrl}/pokemon`;
+export const getOne = async () => {
+  const url = `${baseUrl}/pokemon/${id}`;
   const response = await axios.get(url);
   console.log(response.data);
 };

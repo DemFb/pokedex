@@ -1,16 +1,23 @@
-import {View, Text, Image, Dimensions} from 'react-native';
+import {View, Text, Image, Dimensions, TouchableOpacity} from 'react-native';
 import {StyleSheet} from 'react-native';
 
 const windowWidth = Dimensions.get('window').width;
 
 export const Card = props => {
+  function getId() {
+    props.navigation.navigate('PokeDetail', {
+      pokeId: props.item.id,
+    });
+  }
   return (
-    <View style={style.view}>
-      <Image style={style.image} source={{uri: props.item.image}} />
-      <Text>
-        {props.item.id} : {props.item.name}
-      </Text>
-    </View>
+    <TouchableOpacity onPress={getId}>
+      <View style={style.view}>
+        <Image style={style.image} source={{uri: props.item.image}} />
+        <Text>
+          {props.item.id} : {props.item.name}
+        </Text>
+      </View>
+    </TouchableOpacity>
   );
 };
 

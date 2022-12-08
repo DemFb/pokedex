@@ -1,19 +1,24 @@
 import React, {useEffect, useState} from 'react';
-import {FlatList, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {FlatList, StyleSheet, View} from 'react-native';
 import {fetchData} from '../api/apiHelper';
 import {Card} from './Card';
-const Home = () => {
+import { useDispatch } from "react-redux";
+import {actions as listAction} from '../redux/reducers/PokemonListReducer';
+
+const Home = ({navigation}) => {
   const [data, setData] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     fetchData().then(response => {
       setData(response.data);
+      dispatch(listAction.getPokemons(response.data));
     });
-  }, []);
+  }, [data, dispatch]);
   const renderItem = ({item}) => {
     return (
       <View>
-        <Card item={item} />
+        <Card item={item} navigation={navigation} />
       </View>
     );
   };

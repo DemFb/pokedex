@@ -1,26 +1,33 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import {Text, View} from 'react-native';
+import { SafeAreaView, Text, View } from "react-native";
 import {getOne} from '../api/apiHelper';
 
 export const PokeDetail = ({route}) => {
-  const [pokemon, setPokemon] = useState();
+  const [pokemon, setPokemon] = useState({});
+
   const getPokemon = useCallback(async () => {
     getOne(route.params.pokeId).then(response => {
-      setPokemon(response.data);
-      console.log(response.data);
+      // let pokemonInfo = response.data;
+      // setPokemon(response.data);
+      let updatedValue = response.data;
+
+      setPokemon(updatedValue);
     });
-  }, [pokemon]);
+  }, [route.params.pokeId]);
 
   useEffect(() => {
     getPokemon();
   }, []);
 
   return (
-    <View style={{flex: 1}}>
-      <Text>
-        {route.params.title}
-        {route.params.pokeId}
-      </Text>
-    </View>
+    <SafeAreaView style={{flex: 1}}>
+      <View style={{flex: 1}}>
+        <Text>
+          {pokemon.name}
+          {route.params.title}
+          {route.params.pokeId}
+        </Text>
+      </View>
+    </SafeAreaView>
   );
 };

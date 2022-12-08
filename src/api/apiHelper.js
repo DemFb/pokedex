@@ -12,8 +12,11 @@ export const fetchData = async () => {
   return response;
 };
 // Invoking get method to perform a GET request
-export const getOne = async () => {
-  const url = `${baseUrl}/pokemon/${id}`;
-  const response = await axios.get(url);
-  console.log(response.data);
+export const getOne = async id => {
+  const configurationObject = {
+    method: 'get',
+    url: `${baseUrl}pokemon/${id}`,
+  };
+
+  return axios(configurationObject);
 };

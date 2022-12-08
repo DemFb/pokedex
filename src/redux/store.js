@@ -1,5 +1,5 @@
 import {combineReducers, configureStore} from '@reduxjs/toolkit';
-import {reducer as pokemonList } from "./reducers/PokemonListReducer";
+import {reducer as pokemonList} from './reducers/PokemonListReducer';
 
 const rootReducer = combineReducers({
   pokemonList: pokemonList,
@@ -10,4 +10,3 @@ const store = configureStore({
 });
 
 export {store};
-

@@ -41,6 +41,17 @@ const App: () => Node = () => {
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
+/*=======
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{headerShown: false}}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+>>>>>>> searchBar*/
   );
 };
 

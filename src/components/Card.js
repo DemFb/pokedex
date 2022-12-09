@@ -4,11 +4,11 @@ import {StyleSheet} from 'react-native';
 const windowWidth = Dimensions.get('window').width;
 
 export const Card = props => {
-  function getId() {
+  const getId = () => {
     props.navigation.navigate('PokeDetail', {
       pokeId: props.item.id,
     });
-  }
+  };
   return (
     <TouchableOpacity onPress={getId}>
       <View style={style.view}>

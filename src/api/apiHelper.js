@@ -1,7 +1,6 @@
 import axios from 'axios';
 const baseUrl = 'https://pokebuildapi.fr/api/v1/';
 
-
 export const fetchData = async () => {
   const configurationObject = {
     method: 'get',
@@ -17,6 +16,5 @@ export const getOne = async id => {
     method: 'get',
     url: `${baseUrl}pokemon/${id}`,
   };
-
   return axios(configurationObject);
 };

@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import {FlatList, StyleSheet, View} from 'react-native';
 import {fetchData} from '../api/apiHelper';
 import {Card} from './Card';
-import { useDispatch } from "react-redux";
+import {useDispatch} from 'react-redux';
 import {actions as listAction} from '../redux/reducers/PokemonListReducer';
 import SearchBar from 'react-native-dynamic-search-bar';
 

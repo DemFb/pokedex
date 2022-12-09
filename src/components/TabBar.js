@@ -21,5 +21,3 @@ export const TabBar = () => {
     </Tab.Navigator>
   );
 };
-
-// const styles = StyleSheet.create({});

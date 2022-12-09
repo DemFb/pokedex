@@ -1,33 +1,57 @@
-import React from 'react';
-import { Text, View, StyleSheet, SafeAreaView } from "react-native";
+import React, {useCallback, useEffect, useState} from 'react';
+import {Text, View, StyleSheet, FlatList, TouchableOpacity} from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
+import {Card} from './Card';
+import {actions as deletToFavoriteAction} from '../redux/reducers/FavoriteListReducer';
 
-export const Favorites = () => {
-  return (
-    <SafeAreaView style={styles.container}>
-      <Text style={styles.title}> Sign up </Text>
+//import AsyncStorage from '@react-native-async-storage/async-storage';
+
+export const Favorites = ({navigation}) => {
+  const {favoritePokemonList} = useSelector(s => s.favoritePokemon);
+  const dispatch = useDispatch();
+
+  /*  const deletToFavorite = useCallback(
+    selectedPokemon => {
+      const test = favoritePokemonList.filter(
+        pok => pok.id === selectedPokemon.id,
+      );
+      dispatch(deletToFavoriteAction.deletToFavorite(test[0].id));
+    },
+    [dispatch, favoritePokemonList],
+  );*/
+
+  console.log(favoritePokemonList);
+  const renderItem = ({item}) => {
+    return (
       <View>
-        <Text>Page favorite</Text>
+        <Card item={item} navigation={navigation} />
       </View>
-    </SafeAreaView>
+    );
+  };
+
+  return (
+    <View style={styles.container}>
+      <FlatList
+        contentContainerStyle={{
+          width: '100%',
+          padding: 5,
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+        numColumns={2}
+        data={favoritePokemonList}
+        renderItem={renderItem}
+        keyExtractor={item => item.id}
+      />
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  sectionContainer: {
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
     flex: 1,
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
+    backgroundColor: 'rgba(0, 0, 0, 0.21)',
   },
 });
